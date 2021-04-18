@@ -3,6 +3,20 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+const filters = () => {
+  return {
+      query: '',
+      //cars between 2000-2018
+      from: 2000,
+      to: 2018,
+      //cars that cost between 0-20000
+      min_price: 0,
+      max_price: 20000,
+      //if the car is available or not (by default: false)
+      available: false
+    }
+}
+
 export default new Vuex.Store({
   state: {
     cars: [{ "id": 1, "car_model": "Swift", "car_model_year": 2004, "price": "$16996.19", "available": false },
@@ -402,23 +416,16 @@ export default new Vuex.Store({
     { "id": 299, "car_model": "Countryman", "car_model_year": 2011, "price": "$12588.91", "available": true },
     { "id": 300, "car_model": "Firefly", "car_model_year": 1989, "price": "$5237.33", "available": true }
   ],
-    filter: {
-      query: '',
-      //cars between 2000-2018
-      from: 2000,
-      to: 2018,
-      //cars that cost between 0-6000
-      min_price: 0,
-      max_price: 6000,
-      //if the car is available or not (by default: false)
-      available: false
-    }
+    filter: filters()
   },
   //mutations to alter the info
   mutations: {
     //data contains 2 keys: filter (refers to any filter (query, from...)) and value (value that we wanna apply in that filter)
     setFilter(state, data) {
       state.filter[data['filter']] = data.value;
+    },
+    resetFilter(state) {
+      state.filter = filters();
     }
   },
   getters: {

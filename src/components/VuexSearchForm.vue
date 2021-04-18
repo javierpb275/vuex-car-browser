@@ -208,6 +208,11 @@ export default {
                 });
             }
         }
+    },
+    methods: {
+        resetFilter() {
+            this.$store.commit('resetFilter');
+        }
     }
 }
 </script>
