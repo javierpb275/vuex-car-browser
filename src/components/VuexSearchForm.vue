@@ -1,6 +1,114 @@
 <template>
     <div>
-        test
+        <b-form>
+            <b-row>
+                <b-col>
+                    <b-form-group
+                        label="Query"
+                        label-for="query"
+                    >
+                        <b-form-input
+                            id="query"
+                            v-model="query"
+                            autocomplete="off"
+                        >
+                        </b-form-input>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group
+                        label="From"
+                        label-for="from"
+                    >
+                        <date-picker
+                            v-model="from"
+                            id="from"
+                            name="from"
+                            :minimumView="'year'"
+                            :maximumView="'year'"
+                            :initialView="'year'"
+                            :language="languages[lang]"
+                            :format="'yyyy'"
+                            :bootstrap-styling="true"
+                        ></date-picker>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group
+                        label="To"
+                        label-for="to"
+                    >
+                        <date-picker
+                            v-model="to"
+                            id="to"
+                            name="to"
+                            :minimumView="'year'"
+                            :maximumView="'year'"
+                            :initialView="'year'"
+                            :language="languages[lang]"
+                            :format="'yyyy'"
+                            :bootstrap-styling="true"
+                        ></date-picker>
+                    </b-form-group>
+                </b-col>
+            </b-row>
+            
+            <b-row>
+                <b-col>
+                    <b-form-group
+                        label="Minimum Price"
+                        label-for="min_price"
+                    >
+                        <b-form-input
+                            id="min_price"
+                            v-model="min_price"
+                            type="number"
+                            :step="1000"
+                        >
+                        </b-form-input>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group
+                        label="Maximum Price"
+                        label-for="max_price"
+                    >
+                        <b-form-input
+                            id="max_price"
+                            v-model="max_price"
+                            type="number"
+                            :step="1000"
+                        >
+                        </b-form-input>
+                    </b-form-group>
+                </b-col>
+                <b-col>
+                    <b-form-group
+                        label="Available?"
+                        label-for="available"
+                    >
+                        <b-form-select
+                            id="available"
+                            :options="options"
+                            v-model="available"
+                        >
+                        </b-form-select>
+                    </b-form-group>
+                </b-col>
+            </b-row>
+
+            <b-row>
+                <b-col>
+                    <b-button
+                        @click.prevent="resetFilter"
+                        variant="danger"
+                    >
+                        Reset Filters
+                    </b-button>
+                </b-col>
+            </b-row>
+
+        </b-form>
     </div>
 </template>
 
@@ -28,7 +136,7 @@ export default {
     computed: {
         query: {
             get() {
-                return this.$store.filter.query;
+                return this.$store.state.filter.query;
             },
             set(value) {
                 //access setFilter mutation that modifies the data (query) with the value (value)
@@ -90,7 +198,7 @@ export default {
         },
         available: {
             get() {
-                return this.$store.filter.available;
+                return this.$store.state.filter.available;
             },
             set(value) {
                 //access setFilter mutation that modifies the data (available) with the value (value)
