@@ -4,7 +4,7 @@
             <b-row>
                 <b-col>
                     <b-form-group
-                        label="Query"
+                        label="Car:"
                         label-for="query"
                     >
                         <b-form-input
@@ -17,7 +17,7 @@
                 </b-col>
                 <b-col>
                     <b-form-group
-                        label="From"
+                        label="From:"
                         label-for="from"
                     >
                         <date-picker
@@ -35,7 +35,7 @@
                 </b-col>
                 <b-col>
                     <b-form-group
-                        label="To"
+                        label="To:"
                         label-for="to"
                     >
                         <date-picker
@@ -56,7 +56,7 @@
             <b-row>
                 <b-col>
                     <b-form-group
-                        label="Minimum Price"
+                        label="Minimum Price:"
                         label-for="min_price"
                     >
                         <b-form-input
@@ -70,7 +70,7 @@
                 </b-col>
                 <b-col>
                     <b-form-group
-                        label="Maximum Price"
+                        label="Maximum Price:"
                         label-for="max_price"
                     >
                         <b-form-input
