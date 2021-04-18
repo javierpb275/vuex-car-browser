@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <vuex-search></vuex-search>
+    <vuex-search-list></vuex-search-list>
   </div>
 </template>
 
 <script>
-import VuexSearch from "./components/VuexSearch";
+import VuexSearchList from "./components/VuexSearchList";
 
 export default {
   name: 'App',
   components: {
-    VuexSearch
+    VuexSearchList
   }
 }
 </script>
